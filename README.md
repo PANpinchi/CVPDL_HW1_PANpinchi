@@ -13,14 +13,6 @@
 * Within these constraints,  any method and pre-trained weights are allowed
  Recommended Model Structure.
 
-### Grading Policies
-* Baseline (validation set) (40%) 
-    * Simple baseline (20%) : 0.35 mAP 
-    * Strong baseline (20%) : 0.45 mAP
-* Performance ranking (testing set) (30%)
-    * Linear grading 
-* Report  (30%)
-
 ### Evaluation Metric
 * Evaluation Metric
     * We’ll use the metric taught in class – Average Precision
