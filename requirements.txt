@@ -1,0 +1,6 @@
+gdown
+tqdm
+pycocotools
+scipy
+opencv-python
+numpy==1.24.4
