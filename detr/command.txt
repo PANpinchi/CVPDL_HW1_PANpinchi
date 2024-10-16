@@ -1,0 +1,38 @@
+conda create -n cvpdl_hw1 python=3.10
+
+conda activate cvpdl_hw1
+
+# CUDA 11.3
+conda install pytorch==1.12.0 torchvision==0.13.0 torchaudio==0.12.0 cudatoolkit=11.3 -c pytorch
+
+pip install -r requirements.txt
+
+
+
+
+
+[Download the datasets]
+
+gdown --id 15e2gzkMTTn3CoAkIVSuWnkcLbDMllT7T
+
+unzip hw1.zip
+
+
+【Task: Multi-Label Instruments Classification】
+
+CUDA_VISIBLE_DEVICES=1 nohup python -u detr/main.py --batch_size=32 --num_workers 2 --epochs=50 --num_classes=17 --num_queries=100 --dataset_file='face' --data_path='..' --train_folder='../train/images' --train_json='../train.json' --val_folder='../valid/images' --val_json='../valid.json' --output_dir='detr/outputs' --resume='https://dl.fbaipublicfiles.com/detr/detr-r50-e632da11.pth' > outputs.txt &
+
+CUDA_VISIBLE_DEVICES=1 python test.py
+
+python eval.py valid_target.json ./valid_results/predictions_best.json
+
+python eval_ours.py valid_target.json ./valid_results/predictions_best.json
+
+
+
+
+python eval.py ./tmp_results/predictions_1.json valid_target.json
+
+python eval.py ./tmp_results/predictions_5.json valid_target.json
+
+python eval.py ./tmp_results/predictions_10.json valid_target.json
